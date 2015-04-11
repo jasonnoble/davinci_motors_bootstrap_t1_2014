@@ -34,7 +34,10 @@
           <li class='<%= current_page?(root_path) ? 'active' : '' %>'><%= link_to 'Home', root_path %></li>
           <li class='<%= current_page?(about_path) ? 'active' : '' %>'><%= link_to 'About', about_path %></li>
           <li class='<%= current_page?(contact_path) ? 'active' : '' %>'><%= link_to 'Contact', contact_path %></li>
-          <li class='<%= current_page?(my_cars_path) ? 'active' : '' %>'><%= link_to 'My Cars', my_cars_path %></li>
+          <% if current_user %>
+            <li class='<%= current_page?(my_cars_path) ? 'active' : '' %>'><%= link_to 'My Cars', my_cars_path %></li>
+          <% end %>
+          <%= render 'layouts/authentication' %>
         </ul>
       </div>
     </div>
@@ -47,7 +50,6 @@
       <% end %>
     <% end %>
 
-    <%= render 'layouts/authentication' %>
     <%= yield %>
   </div>
 </body>

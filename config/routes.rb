@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'my_cars' => 'cars#my_cars'
 
+  get 'auth/:provider/callback' => 'sessions#oauth'
+
   get 'login' => 'sessions#login'
   post 'login' => 'sessions#create'
 

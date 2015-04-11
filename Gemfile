@@ -8,6 +8,7 @@ gem 'capybara'
 gem 'launchy'
 gem 'shoulda-matchers'
 gem 'faker'
+gem 'omniauth-github'
 
 gem 'bootstrap-generators'
 
