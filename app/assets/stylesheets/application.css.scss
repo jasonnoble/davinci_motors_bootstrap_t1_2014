@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  background-color: #14ff08;
+}
