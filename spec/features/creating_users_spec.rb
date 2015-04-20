@@ -9,7 +9,7 @@ feature 'Users' do
     visit login_path
     fill_in 'Email', with: @user.email
     fill_in 'Password', with: @user.password
-    click_button 'Login'
+    click_button 'Signin'
 
     within("#car_#{@car1.id}") do
       click_link 'Claim'

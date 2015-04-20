@@ -31,7 +31,7 @@ feature 'User Authentication' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
 
-    click_button 'Login'
+    click_button 'Signin'
 
     expect(page).to have_text("Welcome back #{user.first_name}")
     expect(page).to have_text("Signed in as #{user.email}")
@@ -49,7 +49,7 @@ feature 'User Authentication' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'NOT_YOUR_PASSWORD'
 
-    click_button 'Login'
+    click_button 'Signin'
 
     expect(page).to have_text("Invalid email or password")
     expect(page).to_not have_text("Signed in as")
@@ -63,7 +63,7 @@ feature 'User Authentication' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
 
-    click_button 'Login'
+    click_button 'Signin'
 
     expect(page).to have_text("Signed in as #{user.email}")
 
