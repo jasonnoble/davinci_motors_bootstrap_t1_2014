@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :find_car, only: [:edit, :update, :claim]
+  before_action :find_car, only: [:edit, :update, :claim, :destroy]
 
   def index
     @cars = Car.where(user_id: nil).all
@@ -27,6 +27,13 @@ class CarsController < ApplicationController
     @car.update(car_params)
     redirect_to cars_path,
       notice: "#{@car.year} #{@car.make} #{@car.model} updated"
+  end
+
+  def destroy
+    authorize @car
+    @car.destroy
+    redirect_to cars_path,
+      notice: "Bye bye car"
   end
 
   def create

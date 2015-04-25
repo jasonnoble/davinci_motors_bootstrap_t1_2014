@@ -1,7 +1,9 @@
 <div class="page-header">
-  <%= link_to new_car_path, :class => 'btn btn-success btn-lg' do %>
-    <span class="glyphicon glyphicon-heart-empty"></span>
-    New Car
+  <% if policy(Car.new).new? %>
+    <%= link_to new_car_path, :class => 'btn btn-success btn-lg' do %>
+      <span class="glyphicon glyphicon-heart-empty"></span>
+      New Car
+    <% end %>
   <% end %>
   <h1>Listing cars</h1>
 </div>
@@ -14,9 +16,7 @@
       <th>Model</th>
       <th>Year</th>
       <th>Price</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th colspan="4"></th>
     </tr>
     </thead>
 
@@ -28,7 +28,9 @@
       <td><%= number_to_currency(car.price) %></td>
       <td><%= link_to 'Show', car %></td>
       <td><%= link_to 'Edit', edit_car_path(car) %></td>
-      <td><%= link_to 'Destroy', car, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      <% if policy(car).show_destroy_link? %>
+        <td><%= link_to 'Destroy', car, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      <% end %>
       <% if current_user %>
         <td><%= link_to('Claim', claim_car_path(car)) %></td>
       <% end %>
